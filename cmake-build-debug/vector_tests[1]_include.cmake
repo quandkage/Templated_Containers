@@ -1,0 +1,5 @@
+if(EXISTS "/home/robert/Desktop/Templated_Containers/cmake-build-debug/vector_tests[1]_tests.cmake")
+  include("/home/robert/Desktop/Templated_Containers/cmake-build-debug/vector_tests[1]_tests.cmake")
+else()
+  add_test(vector_tests_NOT_BUILT vector_tests_NOT_BUILT)
+endif()
