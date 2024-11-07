@@ -1,5 +1,8 @@
 #include <iostream>
+#include <vector>
+
 #include "vector.hpp"
+
 
 int main() {
     pic::vector<int> vec;
@@ -26,7 +29,7 @@ int main() {
     pic::vector<int> vec3;
     vec3 = vec2;
     std::cout << "\nTest 3: Assigning one vector to another and printing elements in reverse order.\n";
-    for (auto it = vec3.rbegin(); it != vec3.rend(); it++) {
+    for (auto it = vec3.begin(); it != vec3.end(); it++) {
         std::cout << *it << std::endl;
     }
 
@@ -43,19 +46,19 @@ int main() {
 
     std::cout << "\nTest 5: Moving another vector and resizing it to 10.\n";
     vec5.resize(10);
-    for (auto it = vec5.rbegin(); it != vec5.rend(); it++) {
+    for (auto it = vec5.begin(); it != vec5.end(); it++) {
         std::cout << *it << std::endl;
     }
 
     std::cout << "\nTest 6: Resizing the vector to size 5.\n";
     vec5.resize(5);
-    for (auto it = vec5.rbegin(); it != vec5.rend(); it++) {
+    for (auto it = vec5.begin(); it != vec5.end(); it++) {
         std::cout << *it << std::endl;
     }
 
     std::cout << "\nTest 7: Resizing the vector to size 12 and filling new elements with 12.\n";
     vec5.resize(12, 12);
-    for (auto it = vec5.rbegin(); it != vec5.rend(); it++) {
+    for (auto it = vec5.begin(); it != vec5.end(); it++) {
         std::cout << *it << std::endl;
     }
 
@@ -86,7 +89,7 @@ int main() {
 
     pic::vector<int> vec7 = {1, 2, 3, 4, 5};
     std::cout << "\nTest 13: Initializing vector with initializer list and printing elements in reverse order.\n";
-    for (auto it = vec7.rbegin(); it != vec7.rend(); it++) {
+    for (auto it = vec7.begin(); it != vec7.end(); it++) {
         std::cout << *it << std::endl;
     }
 
@@ -103,12 +106,37 @@ int main() {
     vec8.swap(vec9);
     std::cout << "\nTest 16: Swapping two vectors and printing their elements.\n";
     std::cout << "Vec8 (after swap):\n";
-    for (auto it = vec8.rbegin(); it != vec8.rend(); it++) {
+    for (auto it = vec8.begin(); it != vec8.end(); ++it) {
         std::cout << *it << std::endl;
     }
     std::cout << "Vec9 (after swap):\n";
-    for (auto it = vec9.rbegin(); it != vec9.rend(); it++) {
+    for (auto it = vec9.begin(); it != vec9.end(); ++it) {
         std::cout << *it << std::endl;
+    }
+    std::cout << std::endl;
+    pic::vector<int> vec10 = {1,2,3,4,5,6};
+    vec10.insert(vec10.begin(), 2);
+    for(auto x : vec10) {
+        std::cout << x << std::endl;
+    }
+    std::cout << std::endl;
+    vec10.insert(vec10.begin(), {1,2,3,4,5});
+    for(auto x : vec10) {
+        std::cout << x << std::endl;
+    }
+
+    std::cout << std::endl;
+
+    vec10.erase(vec10.begin() + 1);
+    for(auto x : vec10) {
+        std::cout << x << std::endl;
+    }
+
+    std::cout << std::endl;
+
+    vec10.erase(vec10.begin(), vec10.begin() + 1);
+    for(auto x : vec10) {
+        std::cout << x << std::endl;
     }
 
     return 0;

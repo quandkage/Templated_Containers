@@ -51,7 +51,13 @@ build cmake_object_order_depends_target_Templated_Containers: phony || .
 
 build CMakeFiles/Templated_Containers.dir/main.cpp.o: CXX_COMPILER__Templated_Containers_unscanned_Debug /home/robert/Desktop/Templated_Containers/main.cpp || cmake_object_order_depends_target_Templated_Containers
   DEP_FILE = CMakeFiles/Templated_Containers.dir/main.cpp.o.d
-  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  FLAGS = -fprofile-arcs -ftest-coverage -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles/Templated_Containers.dir
+  OBJECT_FILE_DIR = CMakeFiles/Templated_Containers.dir
+
+build CMakeFiles/Templated_Containers.dir/vector.cpp.o: CXX_COMPILER__Templated_Containers_unscanned_Debug /home/robert/Desktop/Templated_Containers/vector.cpp || cmake_object_order_depends_target_Templated_Containers
+  DEP_FILE = CMakeFiles/Templated_Containers.dir/vector.cpp.o.d
+  FLAGS = -fprofile-arcs -ftest-coverage -g -std=gnu++20 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles/Templated_Containers.dir
   OBJECT_FILE_DIR = CMakeFiles/Templated_Containers.dir
 
@@ -63,8 +69,9 @@ build CMakeFiles/Templated_Containers.dir/main.cpp.o: CXX_COMPILER__Templated_Co
 #############################################
 # Link the executable Templated_Containers
 
-build Templated_Containers: CXX_EXECUTABLE_LINKER__Templated_Containers_Debug CMakeFiles/Templated_Containers.dir/main.cpp.o
-  FLAGS = -g
+build Templated_Containers: CXX_EXECUTABLE_LINKER__Templated_Containers_Debug CMakeFiles/Templated_Containers.dir/main.cpp.o CMakeFiles/Templated_Containers.dir/vector.cpp.o
+  FLAGS = -fprofile-arcs -ftest-coverage -g
+  LINK_FLAGS = -lgcov
   OBJECT_DIR = CMakeFiles/Templated_Containers.dir
   POST_BUILD = :
   PRE_LINK = :
